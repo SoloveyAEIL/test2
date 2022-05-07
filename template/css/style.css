@@ -1,13 +1,22 @@
-.categotyList {
-    /* background-color: gray; */
-}
-
-.productOnce {
-    border: 1px gray solid;
-    margin: 2%;
-    padding: 3%;
-}
-
-.active {
-    color: black;
-}
+* {
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  .wrapper {
+    position: relative;
+    min-height: 100%;
+  }
+  .content {
+    padding-bottom: 90px;
+  }
+  .footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+  }

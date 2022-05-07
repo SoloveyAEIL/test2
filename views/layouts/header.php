@@ -23,11 +23,39 @@
 
 
         <style>
+            * {
+                    margin: 0;
+            padding: 0;
+            } html, body {
+                height: 100%;
+            }
+            .wrapper {
+                position: relative;
+                min-height: 100%;
+            }
+            .content {
+                padding-bottom: 90px;
+            }
+            .footer {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 80px;
+            }
             .container_header {
                 text-align: center;
                 margin: 2%;
             }
             .container_header > a {
                 padding: 2%;
+            }
+            .userOnce {
+                border: solid 1px grey;
+                padding: 3%;
+                margin-top: 6%;
+            }
+            footer {
+                text-align: center;
             }
         </style>

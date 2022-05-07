@@ -26,6 +26,13 @@ class Checker
         return false;
     }
 
+    // проверка имени, только буквы.
+    // public static function checkName1($name)
+    // {
+
+    //     if 
+    // }
+
     // проверка длины фамилии, не меньше двух букв
     public static function checkLastName($lastName)
     {

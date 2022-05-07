@@ -21,20 +21,20 @@
                     <div class="signup-form"><!--sign up form-->
                         <h2>Добавление данных</h2>
                         <form action="#" method="post">
-                            <p>Имя:</p>
-                            <input type="text" name="name" placeholder="Имя"/>
+                            <p>Имя: (РУС. Не меньше двух символов)</p>
+                            <input type="text" name="name" pattern="[А-Яа-яЁё]{2,}" placeholder="Имя"/>
 
-                            <p>Фамилия:</p>
-                            <input type="text" name="lastName" placeholder="Фамилия"/>
+                            <p>Фамилия: (РУС. Не меньше двух символов)</p>
+                            <input type="text" name="lastName" pattern="[А-Яа-яЁё]{2,}" placeholder="Фамилия"/>
                             <p>Дата рождения:</p>
                             <input type="date" name="date" placeholder="дата"/>
 
-                            <p>Пол:</p>
-                            <input type="number" name="gender" placeholder="gender"/>
+                            <p>Пол: (Только "0" или "1")</p>
+                            <input type="number" name="gender" pattern="[0-1]{1}" placeholder="gender"/>
                             <p>Примечание: Ввод только цифры. (0 - Муж., 1 - Жен.)</p>
 
-                            <p>Город:</p>
-                            <input type="text" name="city" placeholder="город"/>
+                            <p>Город: (РУС. Не меньше трех символов)</p>
+                            <input type="text" name="city" pattern="[А-Яа-яЁё]{3,}" placeholder="город"/>
 
                             <br/>
                             <input type="submit" name="submit" class="btn btn-default" value="Сохранить" />

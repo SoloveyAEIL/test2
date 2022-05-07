@@ -51,7 +51,7 @@ class UserAll
     }
 
 
-    // редактирование людей
+    // редактирование 
     public static function edit($id, $name, $lastName, $date, $gender, $city)
     {
 
@@ -76,7 +76,7 @@ class UserAll
         return $result->execute();
     }
 
-    // добавление людей
+    // добавление 
     public static function add($name, $lastName, $date, $gender, $city)
     {
 
@@ -92,5 +92,21 @@ class UserAll
         $result->bindParam(':city', $city, PDO::PARAM_STR);
 
         return $result->execute();
+    }
+
+
+    // удаление 
+    public static function deleteById($id)
+    {
+
+        $db = Db::getConnection();
+        $sql = "DELETE FROM user1 WHERE id = :id";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $result->execute();
+        header ("Location: /");
+        exit();
     }
 }

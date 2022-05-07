@@ -49,10 +49,6 @@ class SiteController
 
             $errors = false;
 
-            if (isset($name)) {
-                echo $name;
-            }
-
             if (!Checker::checkGender($gender)) {
                 $errors[] = 'Поле не соответствует правилам';
             }
@@ -74,7 +70,7 @@ class SiteController
         return true;
     }
 
-
+    // добавление 
     public function actionAdd()
     {
 
@@ -93,16 +89,9 @@ class SiteController
             $gender = $_POST['gender'];
             $city = $_POST['city'];
 
-            if (isset($name)) {
-                echo $name;
-            }
-            if (isset($date)) {
-                echo $name;
-            }
-
             $errors = false;
             if (!Checker::checkGender($gender)) {
-                $errors[] = 'Поле не соответствует правилам';
+                $errors[] = 'Поле "Пол" не соответствует правилам';
             }
             if (!Checker::checkName($name)) {
                 $errors[] = 'Имя не должно быть менее 2-ух символов';
@@ -122,5 +111,23 @@ class SiteController
         return true;
     }
 
+    // удаление
+    public static function actionDelete($id)
+    {
+
+        $userId = UserAll::getUserById($id);
+        // $id = $userId['id'];
+
+        // $result = UserAll::deleteById($id);
+
+        if (isset($_POST['submit'])) {
+
+            UserAll::deleteById($id);
+            header("Location: /");
+        }
+
+        require_once(ROOT.'/views/site/delete.php');
+        return true;
+    }
 
 }
