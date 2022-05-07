@@ -16,18 +16,15 @@
                                             <p>ID: <?php echo $user['id']; ?></p>
                                             <p>Имя: <?php echo $user['name']; ?></p>
                                             <p>Фамилия: <?php echo $user['lastName']; ?></p>
-                                            <p>Дата Рождения: <?php echo $user['date']; ?>
-                                                (
-                                                    <?php echo date("Y"); ?>
-                                                )</p>
+                                            <p>Дата Рождения: <?php echo $user['date']; ?></p>
                                             <p>Пол: <?php echo $user['gender']; ?> 
                                                 (
                                                     <?php if ($user['gender'] == 0) echo 'M';
                                                         else echo 'Ж'; ?>
                                                 )</p>
                                             <p>Город: <?php echo $user['city']; ?></p>
-                                            <br>
-                                            <a href="/view/<?php echo $user['id']; ?>">Изменить</a>
+                                            <!-- <br>
+                                            <a href="/view/№№№">Изменить</a> -->
                                             <br>
                                             <a href="/edit/<?php echo $user['id']; ?>">Изменить</a>
 

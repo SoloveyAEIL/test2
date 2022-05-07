@@ -50,6 +50,8 @@ class UserAll
         return $result->fetch();
     }
 
+
+    // редактирование людей
     public static function edit($id, $name, $lastName, $date, $gender, $city)
     {
 
@@ -67,7 +69,25 @@ class UserAll
         $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':lastName', $lastName, PDO::PARAM_STR);
-        $result->bindParam(':date', $date, PDO::PARAM_INT);
+        $result->bindParam(':date', $date, PDO::PARAM_STR);
+        $result->bindParam(':gender', $gender, PDO::PARAM_INT);
+        $result->bindParam(':city', $city, PDO::PARAM_STR);
+
+        return $result->execute();
+    }
+
+    // добавление людей
+    public static function add($name, $lastName, $date, $gender, $city)
+    {
+
+        $db = Db::getConnection();
+        $sql = "INSERT INTO `user1`(`name`, `lastName`, `date`, `gender`, `city`) 
+        VALUES (:name, :lastName, :date, :gender, :city)";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $result->bindParam(':date', $date, PDO::PARAM_STR);
         $result->bindParam(':gender', $gender, PDO::PARAM_INT);
         $result->bindParam(':city', $city, PDO::PARAM_STR);
 

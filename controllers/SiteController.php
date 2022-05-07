@@ -37,9 +37,10 @@ class SiteController
         $date = $userId['date'];
         $gender = $userId['gender'];
         $city = $userId['city'];
-            $result = false;
 
-        if (isset($_POST['submit'])) {
+        $result = false;
+
+        if (isset ($_POST['submit'])) {
             $name = $_POST['name'];
             $lastName = $_POST['lastName'];
             $date = $_POST['date'];
@@ -47,6 +48,10 @@ class SiteController
             $city = $_POST['city'];
 
             $errors = false;
+
+            if (isset($name)) {
+                echo $name;
+            }
 
             if (!Checker::checkGender($gender)) {
                 $errors[] = 'Поле не соответствует правилам';
@@ -60,7 +65,7 @@ class SiteController
             if (!Checker::checkCity($city)) {
                 $errors[] = 'Город должен состоять не менее чем из 3-ех символом';
             }
-            if ($errors = false) {
+            if ($errors == false) {
                 $result = UserAll::edit($id, $name, $lastName, $date, $gender, $city);
             }
         }
@@ -68,5 +73,54 @@ class SiteController
         require_once(ROOT.'/views/site/edit.php');     
         return true;
     }
+
+
+    public function actionAdd()
+    {
+
+        $name = false;
+        $lastName = false;
+        $date = false;
+        $gender = false;
+        $city = false;
+
+        $result = false;
+
+        if (isset ($_POST['submit'])) {
+            $name = $_POST['name'];
+            $lastName = $_POST['lastName'];
+            $date = $_POST['date'];
+            $gender = $_POST['gender'];
+            $city = $_POST['city'];
+
+            if (isset($name)) {
+                echo $name;
+            }
+            if (isset($date)) {
+                echo $name;
+            }
+
+            $errors = false;
+            if (!Checker::checkGender($gender)) {
+                $errors[] = 'Поле не соответствует правилам';
+            }
+            if (!Checker::checkName($name)) {
+                $errors[] = 'Имя не должно быть менее 2-ух символов';
+            }
+            if (!Checker::checkLastName($lastName)) {
+                $errors[] = 'Фамилия не должна быть короче 2-ух символов';
+            }
+            if (!Checker::checkCity($city)) {
+                $errors[] = 'Город должен состоять не менее чем из 3-ех символом';
+            }
+            if ($errors == false) {
+                $result = UserAll::add($name, $lastName, $date, $gender, $city);
+            }
+        }
+
+        require_once(ROOT.'/views/site/add.php');     
+        return true;
+    }
+
 
 }
